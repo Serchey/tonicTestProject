@@ -12,7 +12,7 @@
 
 #pragma mark - Setters
 
-- (void)setCellItem:(NSDictionary *)item {
+- (void)fillCellWithDataSourceItem:(id<THDataSourceItem>)item {
     // may be orverriden by a child class
 }
 

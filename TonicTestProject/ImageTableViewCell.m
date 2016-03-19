@@ -6,6 +6,7 @@
 //  Copyright © 2016 MevaSoft. All rights reserved.
 //
 
+#import "ImageItemModel.h"
 #import "ImageTableViewCell.h"
 #import "UIImageCacher.h"
 
@@ -22,9 +23,11 @@ static CGFloat const kImageCellDefaultHeight = 128.0;
 
 @implementation ImageTableViewCell
 
-- (void)setCellItem:(NSDictionary *)item {
-    self.titleLabel.text = item[@"title"];
-    self.previewImageURLString = item[@"preview"];
+- (void)fillCellWithDataSourceItem:(id<THDataSourceItem>)item {
+    ImageItemModel *model = (ImageItemModel *)item;
+
+    self.titleLabel.text = model.title;
+    self.previewImageURLString = model.previewURLString;
 
     if (self.superview != nil) { // do not request heavy objects for unattached cells
         self.iconImage.image = [[UIImageCacher sharedCacher] imageForURLString:self.previewImageURLString

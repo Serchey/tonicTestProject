@@ -6,6 +6,7 @@
 //  Copyright © 2016 MevaSoft. All rights reserved.
 //
 
+#import "ImageItemModel.h"
 #import "PreviewViewController.h"
 #import "UIImageCacher.h"
 
@@ -20,7 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.iconImage.image = [[UIImageCacher sharedCacher] imageForURLString:self.imageURLString
+    self.title = self.model.title;
+
+    self.iconImage.image = [[UIImageCacher sharedCacher] imageForURLString:self.model.imageURLString
                                                                   callback:^(NSString *_Nonnull urlString, UIImage *_Nonnull image) {
                                                                     self.iconImage.image = image;
                                                                   }];

@@ -6,6 +6,7 @@
 //  Copyright © 2016 MevaSoft. All rights reserved.
 //
 
+#import "TextItemModel.h"
 #import "TextTableViewCell.h"
 
 @interface TextTableViewCell ()
@@ -17,9 +18,11 @@
 
 @implementation TextTableViewCell
 
-- (void)setCellItem:(NSDictionary *)item {
-    self.titleLabel.text = item[@"title"];
-    self.descriptionLabel.text = item[@"text"];
+- (void)fillCellWithDataSourceItem:(id<THDataSourceItem>)item {
+    TextItemModel *model = (TextItemModel *)item;
+
+    self.titleLabel.text = model.title;
+    self.descriptionLabel.text = model.text;
 }
 
 @end

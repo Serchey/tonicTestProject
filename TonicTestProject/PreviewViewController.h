@@ -8,8 +8,10 @@
 
 @import UIKit;
 
+@class ImageItemModel;
+
 @interface PreviewViewController : UIViewController
 
-@property(nonatomic, strong, nonnull) NSString *imageURLString;
+@property(nonatomic, strong, nonnull) ImageItemModel *model;
 
 @end

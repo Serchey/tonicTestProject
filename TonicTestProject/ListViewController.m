@@ -6,26 +6,20 @@
 //  Copyright © 2016 MevaSoft. All rights reserved.
 //
 
-#import "CellFactory.h"
-#import "DataLoader.h"
+#import "ImageItemModel.h"
 #import "ListViewController.h"
 #import "PreviewViewController.h"
-
-static NSString *const kDataSourceURLString = @"http://tonicforhealth.esy.es/test.json";
-static NSString *const kJSONItemsKey = @"items";
+#import "THDataSourceItemsList.h"
+#import "TextItemModel.h"
 
 static NSString *const kCellTypeImageNib = @"ImageTableViewCell";
-static NSString *const kCellTypeImageReuseID = @"imageCell";
-
 static NSString *const kCellTypeTextNib = @"TextTableViewCell";
-static NSString *const kCellTypeTextReuseID = @"textCell";
 
-@interface ListViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface ListViewController () <THDataSourceDelegate>
 
-@property(nonatomic, strong, nonnull) NSArray *items;
-@property(nonatomic, strong, nonnull) CellFactory *cellFactory;
+@property(nonatomic, strong, nonnull) THDataSourceItemsList *dataSource;
 
-@property(nonatomic, weak) IBOutlet UITableView *tableView;
+@property(nonatomic, weak, readwrite) IBOutlet UITableView *tableView;
 
 @end
 
@@ -36,88 +30,29 @@ static NSString *const kCellTypeTextReuseID = @"textCell";
 
     self.title = @"Items";
 
-    [self setupCellFactory];
+    [self registerCellNibs];
 
-    [DataLoader downloadJSONAsDictionaryFromURLString:kDataSourceURLString
-                                      completionBlock:^(NSDictionary *_Nullable dictionary, NSString *_Nullable errorTitle, NSString *_Nullable errorDescription) {
-                                        if (dictionary != nil) {
-                                            self.items = dictionary[kJSONItemsKey];
-                                            [self.tableView reloadData];
-                                        } else {
-                                            [self showErrorWithTitle:errorTitle description:errorDescription];
-                                        }
-                                      }];
+    self.dataSource = [THDataSourceItemsList new];
+    [self.dataSource.supportedItemClasses addObject:[ImageItemModel class]];
+    [self.dataSource.supportedItemClasses addObject:[TextItemModel class]];
+    self.dataSource.delegate = self;
+    [self.dataSource loadData];
 }
 
 #pragma mark - Initial Setup
 
-- (void)setupCellFactory {
-    __weak typeof(self) weakSELF = self;
-
-    self.cellFactory = [[CellFactory alloc] initWithTableView:self.tableView];
-
-    [self.cellFactory registerCellTypeWithReusableID:kCellTypeImageReuseID
-                                             nibName:kCellTypeImageNib
-                                      itemMatchBlock:^BOOL(NSDictionary *_Nonnull item) {
-                                        return [weakSELF isItemOfImageType:item];
-                                      }];
-
-    [self.cellFactory registerCellTypeWithReusableID:kCellTypeTextReuseID
-                                             nibName:kCellTypeTextNib
-                                      itemMatchBlock:^BOOL(NSDictionary *_Nonnull item) {
-                                        return [weakSELF isItemOfTextType:item];
-                                      }];
+- (void)registerCellNibs {
+    [self.tableView registerNib:[UINib nibWithNibName:kCellTypeImageNib bundle:nil] forCellReuseIdentifier:[ImageItemModel cellReuseIdentifier]];
+    [self.tableView registerNib:[UINib nibWithNibName:kCellTypeTextNib bundle:nil] forCellReuseIdentifier:[TextItemModel cellReuseIdentifier]];
 }
 
-#pragma mark - Helpers
+#pragma mark - THDataSourceDelegate
 
-- (void)showErrorWithTitle:(NSString *)title description:(NSString *)description {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:description delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alertView show];
-}
-
-- (BOOL)isItemOfTextType:(NSDictionary *)dict {
-    return ([dict objectForKey:@"title"] && [dict objectForKey:@"text"]);
-}
-
-- (BOOL)isItemOfImageType:(NSDictionary *)dict {
-    return ([dict objectForKey:@"title"] && [dict objectForKey:@"image"] && [dict objectForKey:@"preview"]);
-}
-
-- (BaseTableViewCell *)cellForIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView forHeightCalculation:(BOOL)heightCalculation {
-    NSDictionary *item = self.items[indexPath.row];
-
-    BaseTableViewCell *cell = [self.cellFactory cellForItem:item indexPath:indexPath forHeightCalculation:heightCalculation];
-
-    [cell setCellItem:item];
-
-    return cell;
-}
-
-#pragma mark - UITableViewDataSource, UITableViewDelegate
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    BaseTableViewCell *cell = [self cellForIndexPath:indexPath tableView:tableView forHeightCalculation:YES];
-    return [cell cellHeightForTableWidth:CGRectGetWidth(tableView.bounds)];
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.items.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [self cellForIndexPath:indexPath tableView:tableView forHeightCalculation:NO];
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
-    NSDictionary *item = self.items[indexPath.row];
-
-    if ([self isItemOfImageType:item]) {
+- (void)didSelectItem:(id<THDataSourceItem>)item {
+    if ([[item cellReuseIdentifier] isEqualToString:kCellTypeImageNib]) {
         PreviewViewController *previewController = [[PreviewViewController alloc] initWithNibName:@"PreviewViewController" bundle:nil];
-        previewController.imageURLString = item[@"image"];
-        previewController.title = item[@"title"];
+
+        previewController.model = (ImageItemModel *)item;
 
         [self.navigationController pushViewController:previewController animated:YES];
     }
