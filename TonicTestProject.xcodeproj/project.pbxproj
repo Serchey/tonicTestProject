@@ -1,0 +1,375 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E52AFCC61C6F394600CC8330 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AFCC51C6F394600CC8330 /* main.m */; };
+		E52AFCC91C6F394600CC8330 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AFCC81C6F394600CC8330 /* AppDelegate.m */; };
+		E52AFCCC1C6F394600CC8330 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AFCCB1C6F394600CC8330 /* ViewController.m */; };
+		E52AFCD11C6F394600CC8330 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E52AFCD01C6F394600CC8330 /* Assets.xcassets */; };
+		E52AFCE91C6F3C9200CC8330 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AFCE71C6F3C9200CC8330 /* ListViewController.m */; };
+		E52AFCEA1C6F3C9200CC8330 /* ListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52AFCE81C6F3C9200CC8330 /* ListViewController.xib */; };
+		E52AFCEE1C6F3EFF00CC8330 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52AFCED1C6F3EFF00CC8330 /* LaunchScreen.xib */; };
+		E52AFCF21C6F481200CC8330 /* ImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AFCF01C6F481200CC8330 /* ImageTableViewCell.m */; };
+		E52AFCF31C6F481200CC8330 /* ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52AFCF11C6F481200CC8330 /* ImageTableViewCell.xib */; };
+		E52AFCF71C6F483200CC8330 /* TextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AFCF51C6F483200CC8330 /* TextTableViewCell.m */; };
+		E52AFCF81C6F483200CC8330 /* TextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52AFCF61C6F483200CC8330 /* TextTableViewCell.xib */; };
+		E52AFCFB1C6F4A5700CC8330 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AFCFA1C6F4A5700CC8330 /* BaseTableViewCell.m */; };
+		E52AFD021C6F5B3100CC8330 /* UIImageCacher.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AFD011C6F5B3100CC8330 /* UIImageCacher.m */; };
+		E52AFD061C6F61E300CC8330 /* PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AFD041C6F61E300CC8330 /* PreviewViewController.m */; };
+		E52AFD071C6F61E300CC8330 /* PreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52AFD051C6F61E300CC8330 /* PreviewViewController.xib */; };
+		E5671E231C7101D70042BCAC /* CellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E5671E221C7101D70042BCAC /* CellFactory.m */; };
+		E5671E261C7109340042BCAC /* DataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = E5671E251C7109340042BCAC /* DataLoader.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E52AFCC11C6F394600CC8330 /* TonicTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TonicTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E52AFCC51C6F394600CC8330 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E52AFCC71C6F394600CC8330 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E52AFCC81C6F394600CC8330 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E52AFCCA1C6F394600CC8330 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E52AFCCB1C6F394600CC8330 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E52AFCD01C6F394600CC8330 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E52AFCD51C6F394600CC8330 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E52AFCE61C6F3C9200CC8330 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		E52AFCE71C6F3C9200CC8330 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		E52AFCE81C6F3C9200CC8330 /* ListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListViewController.xib; sourceTree = "<group>"; };
+		E52AFCED1C6F3EFF00CC8330 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		E52AFCEF1C6F481200CC8330 /* ImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTableViewCell.h; sourceTree = "<group>"; };
+		E52AFCF01C6F481200CC8330 /* ImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTableViewCell.m; sourceTree = "<group>"; };
+		E52AFCF11C6F481200CC8330 /* ImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageTableViewCell.xib; sourceTree = "<group>"; };
+		E52AFCF41C6F483200CC8330 /* TextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextTableViewCell.h; sourceTree = "<group>"; };
+		E52AFCF51C6F483200CC8330 /* TextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextTableViewCell.m; sourceTree = "<group>"; };
+		E52AFCF61C6F483200CC8330 /* TextTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextTableViewCell.xib; sourceTree = "<group>"; };
+		E52AFCF91C6F4A5700CC8330 /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
+		E52AFCFA1C6F4A5700CC8330 /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
+		E52AFD001C6F5B3100CC8330 /* UIImageCacher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageCacher.h; sourceTree = "<group>"; };
+		E52AFD011C6F5B3100CC8330 /* UIImageCacher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageCacher.m; sourceTree = "<group>"; };
+		E52AFD031C6F61E300CC8330 /* PreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewViewController.h; sourceTree = "<group>"; };
+		E52AFD041C6F61E300CC8330 /* PreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewViewController.m; sourceTree = "<group>"; };
+		E52AFD051C6F61E300CC8330 /* PreviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewViewController.xib; sourceTree = "<group>"; };
+		E5671E211C7101D70042BCAC /* CellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellFactory.h; sourceTree = "<group>"; };
+		E5671E221C7101D70042BCAC /* CellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellFactory.m; sourceTree = "<group>"; };
+		E5671E241C7109340042BCAC /* DataLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataLoader.h; sourceTree = "<group>"; };
+		E5671E251C7109340042BCAC /* DataLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataLoader.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E52AFCBE1C6F394600CC8330 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E52AFCB81C6F394600CC8330 = {
+			isa = PBXGroup;
+			children = (
+				E52AFCC31C6F394600CC8330 /* TonicTestProject */,
+				E52AFCC21C6F394600CC8330 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E52AFCC21C6F394600CC8330 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E52AFCC11C6F394600CC8330 /* TonicTestProject.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E52AFCC31C6F394600CC8330 /* TonicTestProject */ = {
+			isa = PBXGroup;
+			children = (
+				E52AFCFC1C6F553400CC8330 /* Classes */,
+				E52AFCDC1C6F3BB700CC8330 /* Cells */,
+				E52AFCDB1C6F3BAB00CC8330 /* ViewControllers */,
+				E52AFCC71C6F394600CC8330 /* AppDelegate.h */,
+				E52AFCC81C6F394600CC8330 /* AppDelegate.m */,
+				E52AFCCA1C6F394600CC8330 /* ViewController.h */,
+				E52AFCCB1C6F394600CC8330 /* ViewController.m */,
+				E52AFCD01C6F394600CC8330 /* Assets.xcassets */,
+				E52AFCD51C6F394600CC8330 /* Info.plist */,
+				E52AFCC41C6F394600CC8330 /* Supporting Files */,
+				E52AFCED1C6F3EFF00CC8330 /* LaunchScreen.xib */,
+			);
+			path = TonicTestProject;
+			sourceTree = "<group>";
+		};
+		E52AFCC41C6F394600CC8330 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E52AFCC51C6F394600CC8330 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E52AFCDB1C6F3BAB00CC8330 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E52AFCE61C6F3C9200CC8330 /* ListViewController.h */,
+				E52AFCE71C6F3C9200CC8330 /* ListViewController.m */,
+				E52AFCE81C6F3C9200CC8330 /* ListViewController.xib */,
+				E52AFD031C6F61E300CC8330 /* PreviewViewController.h */,
+				E52AFD041C6F61E300CC8330 /* PreviewViewController.m */,
+				E52AFD051C6F61E300CC8330 /* PreviewViewController.xib */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E52AFCDC1C6F3BB700CC8330 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E52AFCF91C6F4A5700CC8330 /* BaseTableViewCell.h */,
+				E52AFCFA1C6F4A5700CC8330 /* BaseTableViewCell.m */,
+				E52AFCEF1C6F481200CC8330 /* ImageTableViewCell.h */,
+				E52AFCF01C6F481200CC8330 /* ImageTableViewCell.m */,
+				E52AFCF11C6F481200CC8330 /* ImageTableViewCell.xib */,
+				E52AFCF41C6F483200CC8330 /* TextTableViewCell.h */,
+				E52AFCF51C6F483200CC8330 /* TextTableViewCell.m */,
+				E52AFCF61C6F483200CC8330 /* TextTableViewCell.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		E52AFCFC1C6F553400CC8330 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E52AFD001C6F5B3100CC8330 /* UIImageCacher.h */,
+				E52AFD011C6F5B3100CC8330 /* UIImageCacher.m */,
+				E5671E211C7101D70042BCAC /* CellFactory.h */,
+				E5671E221C7101D70042BCAC /* CellFactory.m */,
+				E5671E241C7109340042BCAC /* DataLoader.h */,
+				E5671E251C7109340042BCAC /* DataLoader.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E52AFCC01C6F394600CC8330 /* TonicTestProject */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E52AFCD81C6F394600CC8330 /* Build configuration list for PBXNativeTarget "TonicTestProject" */;
+			buildPhases = (
+				E52AFCBD1C6F394600CC8330 /* Sources */,
+				E52AFCBE1C6F394600CC8330 /* Frameworks */,
+				E52AFCBF1C6F394600CC8330 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TonicTestProject;
+			productName = TonicTestProject;
+			productReference = E52AFCC11C6F394600CC8330 /* TonicTestProject.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E52AFCB91C6F394600CC8330 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = MevaSoft;
+				TargetAttributes = {
+					E52AFCC01C6F394600CC8330 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+				};
+			};
+			buildConfigurationList = E52AFCBC1C6F394600CC8330 /* Build configuration list for PBXProject "TonicTestProject" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E52AFCB81C6F394600CC8330;
+			productRefGroup = E52AFCC21C6F394600CC8330 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E52AFCC01C6F394600CC8330 /* TonicTestProject */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E52AFCBF1C6F394600CC8330 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E52AFCEA1C6F3C9200CC8330 /* ListViewController.xib in Resources */,
+				E52AFCF81C6F483200CC8330 /* TextTableViewCell.xib in Resources */,
+				E52AFCF31C6F481200CC8330 /* ImageTableViewCell.xib in Resources */,
+				E52AFD071C6F61E300CC8330 /* PreviewViewController.xib in Resources */,
+				E52AFCEE1C6F3EFF00CC8330 /* LaunchScreen.xib in Resources */,
+				E52AFCD11C6F394600CC8330 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E52AFCBD1C6F394600CC8330 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E52AFCCC1C6F394600CC8330 /* ViewController.m in Sources */,
+				E52AFCF21C6F481200CC8330 /* ImageTableViewCell.m in Sources */,
+				E52AFCC91C6F394600CC8330 /* AppDelegate.m in Sources */,
+				E52AFCE91C6F3C9200CC8330 /* ListViewController.m in Sources */,
+				E52AFCF71C6F483200CC8330 /* TextTableViewCell.m in Sources */,
+				E52AFCFB1C6F4A5700CC8330 /* BaseTableViewCell.m in Sources */,
+				E52AFD061C6F61E300CC8330 /* PreviewViewController.m in Sources */,
+				E5671E261C7109340042BCAC /* DataLoader.m in Sources */,
+				E52AFCC61C6F394600CC8330 /* main.m in Sources */,
+				E52AFD021C6F5B3100CC8330 /* UIImageCacher.m in Sources */,
+				E5671E231C7101D70042BCAC /* CellFactory.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		E52AFCD61C6F394600CC8330 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E52AFCD71C6F394600CC8330 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E52AFCD91C6F394600CC8330 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TonicTestProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mevasoft.TonicTestProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E52AFCDA1C6F394600CC8330 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TonicTestProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mevasoft.TonicTestProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E52AFCBC1C6F394600CC8330 /* Build configuration list for PBXProject "TonicTestProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E52AFCD61C6F394600CC8330 /* Debug */,
+				E52AFCD71C6F394600CC8330 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E52AFCD81C6F394600CC8330 /* Build configuration list for PBXNativeTarget "TonicTestProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E52AFCD91C6F394600CC8330 /* Debug */,
+				E52AFCDA1C6F394600CC8330 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E52AFCB91C6F394600CC8330 /* Project object */;
+}
