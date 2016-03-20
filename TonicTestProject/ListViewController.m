@@ -59,7 +59,7 @@ static NSString *const kCellTypeTextNib = @"TextTableViewCell";
 #pragma mark - THDataSourceDelegate
 
 - (void)didSelectItem:(id<THDataSourceItem>)item {
-    if ([[item cellReuseIdentifier] isEqualToString:kCellTypeImageNib]) {
+    if ([item isKindOfClass:[ImageItemModel class]]) {
         PreviewViewController *previewController = [[PreviewViewController alloc] initWithNibName:@"PreviewViewController" bundle:nil];
 
         previewController.model = (ImageItemModel *)item;
@@ -71,7 +71,6 @@ static NSString *const kCellTypeTextNib = @"TextTableViewCell";
 #pragma mark - Helpers
 
 - (void)showErrorWithTitle:(NSString *)title description:(NSString *)description {
-    // TODO: error reporting should be moved to UI through delegate
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:description delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alertView show];
 }
