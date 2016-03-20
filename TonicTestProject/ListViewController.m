@@ -32,10 +32,11 @@ static NSString *const kCellTypeTextNib = @"TextTableViewCell";
 
     [self registerCellNibs];
 
-    self.dataSource = [THDataSourceItemsList new];
+    self.dataSource = [[THDataSourceItemsList alloc] initWithTableView:self.tableView];
+    self.dataSource.delegate = self;
+
     [self.dataSource.supportedItemClasses addObject:[ImageItemModel class]];
     [self.dataSource.supportedItemClasses addObject:[TextItemModel class]];
-    self.dataSource.delegate = self;
 
     __weak typeof(self) weakSELF = self;
     [self.dataSource loadDataWithCompletionBlock:^(THDataSourceDataLoadState state, NSError *_Nullable error) {

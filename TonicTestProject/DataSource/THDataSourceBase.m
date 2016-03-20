@@ -10,6 +10,8 @@
 
 @interface THDataSourceBase ()
 
+@property(nonatomic, weak, readwrite) UITableView *tableView;
+
 @property(nonatomic, strong, readwrite) NSMutableArray<id<THDataSourceItem>> *flatItemsList;
 @property(nonatomic, strong, readwrite) NSMutableArray<id<THDataSourceItem>> *filteredItemsList;
 @property(nonatomic, strong, readwrite) NSMutableArray<NSMutableArray<id<THDataSourceItem>> *> *sectionedItemsList;
@@ -20,29 +22,27 @@
 
 @implementation THDataSourceBase
 
-@synthesize delegate = _delegate;
+@synthesize delegate;
 @synthesize filteringBlock = _filteringBlock;
 @synthesize sortingComparator = _sortingComparator;
 
-- (instancetype)init {
+- (instancetype)initWithTableView:(UITableView *)tableView {
     self = [super init];
     if (self != nil) {
+        self.tableView = tableView;
+
         self.flatItemsList = [NSMutableArray array];
         self.filteredItemsList = [NSMutableArray array];
         self.sectionedItemsList = [NSMutableArray array];
         self.sizingCells = [NSMutableDictionary dictionary];
+
+        self.tableView.delegate = self;
+        self.tableView.dataSource = self;
     }
     return self;
 }
 
 #pragma mark - Setters
-
-- (void)setDelegate:(id<THDataSourceDelegate>)delegate {
-    _delegate = delegate;
-
-    _delegate.tableView.delegate = self;
-    _delegate.tableView.dataSource = self;
-}
 
 - (void)setFilteringBlock:(THDataSourceFilteringBlock)filteringBlock {
     _filteringBlock = [filteringBlock copy];
@@ -62,8 +62,9 @@
 }
 
 - (id<THDataSourceItemCell>)getSizingCellForReuseIdentifier:(NSString *)reuseIdentifier {
+    NSAssert(self.tableView != nil, @"TableView must not be nil");
     if (self.sizingCells[reuseIdentifier] == nil) {
-        UITableViewCell<THDataSourceItemCell> *cell = [self.delegate.tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+        UITableViewCell<THDataSourceItemCell> *cell = [self.tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
         [self validateCell:cell reuseIdentifier:reuseIdentifier];
         self.sizingCells[reuseIdentifier] = cell;
     }
@@ -90,8 +91,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSAssert(self.tableView != nil, @"TableView must not be nil");
     id<THDataSourceItem> item = self.sectionedItemsList[indexPath.section][indexPath.row];
-    UITableViewCell<THDataSourceItemCell> *cell = [self.delegate.tableView dequeueReusableCellWithIdentifier:[item cellReuseIdentifier] forIndexPath:indexPath];
+    UITableViewCell<THDataSourceItemCell> *cell = [self.tableView dequeueReusableCellWithIdentifier:[item cellReuseIdentifier] forIndexPath:indexPath];
     [self validateCell:cell reuseIdentifier:[item cellReuseIdentifier]];
     [cell fillCellWithDataSourceItem:item];
     return cell;
@@ -106,10 +108,20 @@
     }
 }
 
-#pragma mark - Data loading
+#pragma mark - API
 
 - (void)loadDataWithCompletionBlock:(THDataSourceDataLoadCompletionBlock)complete {
-    // should be overrided by a child class
+    // should be overriden by a child class
+}
+
+- (nullable NSIndexPath *)indexPathForItem:(id<THDataSourceItem>)item {
+    for (NSUInteger sectionIdx = 0; sectionIdx < self.sectionedItemsList.count; sectionIdx++) {
+        NSUInteger rowIdx = [self.sectionedItemsList[sectionIdx] indexOfObject:item];
+        if (rowIdx != NSNotFound) {
+            return [NSIndexPath indexPathForRow:rowIdx inSection:sectionIdx];
+        }
+    }
+    return nil;
 }
 
 #pragma mark - Filtering & Sorting
@@ -138,7 +150,7 @@
 - (void)createSectionedListFromFilteredList {
     // may be implemented by a child class, make only one section by default
     [self.sectionedItemsList removeAllObjects];
-    [self.sectionedItemsList addObject:self.filteredItemsList];
+    [self.sectionedItemsList addObject:[self.filteredItemsList mutableCopy]];
 }
 
 @end

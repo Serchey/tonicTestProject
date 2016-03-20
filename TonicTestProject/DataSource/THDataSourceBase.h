@@ -12,9 +12,14 @@
 
 @interface THDataSourceBase : NSObject <THDataSourceProtocol>
 
+@property(nonatomic, weak, readonly) UITableView *tableView;
+
 @property(nonatomic, strong, readonly) NSMutableArray<id<THDataSourceItem>> *flatItemsList;
 @property(nonatomic, strong, readonly) NSMutableArray<id<THDataSourceItem>> *filteredItemsList;
 @property(nonatomic, strong, readonly) NSMutableArray<NSMutableArray<id<THDataSourceItem>> *> *sectionedItemsList;
+
+- (instancetype)init __attribute__((unavailable("Use -initWithTable instead.")));
+- (instancetype)initWithTableView:(UITableView *)tableView NS_DESIGNATED_INITIALIZER;
 
 - (void)createSectionedListFromFlatList;
 

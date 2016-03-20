@@ -16,8 +16,8 @@ static NSString *const kJSONItemsKey = @"items";
 
 @implementation THDataSourceItemsList
 
-- (instancetype)init {
-    self = [super init];
+- (instancetype)initWithTableView:(UITableView *)tableView {
+    self = [super initWithTableView:tableView];
     if (self != nil) {
         self.supportedItemClasses = [NSMutableArray array];
     }
@@ -54,8 +54,9 @@ static NSString *const kJSONItemsKey = @"items";
                 break;
             }
         }
-
-        [self.flatItemsList addObject:item];
+        if (item != nil) {
+            [self.flatItemsList addObject:item];
+        }
     }
 }
 

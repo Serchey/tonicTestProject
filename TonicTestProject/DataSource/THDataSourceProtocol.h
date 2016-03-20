@@ -19,10 +19,6 @@ typedef BOOL (^THDataSourceFilteringBlock)(id<THDataSourceItem> item); // return
 typedef NSComparisonResult (^THDataSourceSortingComparatorBlock)(id<THDataSourceItem> item1, id<THDataSourceItem> item2);
 
 @protocol THDataSourceDelegate <NSObject>
-
-/// delegate must have a tableView
-@property(nonatomic, weak, readonly) UITableView *tableView;
-
 @optional
 
 // will call this method when user taps a row
@@ -32,11 +28,14 @@ typedef NSComparisonResult (^THDataSourceSortingComparatorBlock)(id<THDataSource
 
 @protocol THDataSourceProtocol <UITableViewDataSource, UITableViewDelegate>
 
-- (void)loadDataWithCompletionBlock:(THDataSourceDataLoadCompletionBlock)complete;
-
 @property(nonatomic, weak) id<THDataSourceDelegate> delegate;
 @property(nonatomic, copy, nullable) THDataSourceFilteringBlock filteringBlock;
 @property(nonatomic, copy, nullable) THDataSourceSortingComparatorBlock sortingComparator;
+
+- (instancetype)initWithTableView:(UITableView *)tableView;
+- (void)loadDataWithCompletionBlock:(THDataSourceDataLoadCompletionBlock)complete;
+/// returns indexPath or nil if the item is either not exists of filtered(i.e. not on sectionedList)
+- (nullable NSIndexPath *)indexPathForItem:(id<THDataSourceItem>)item;
 
 @optional
 
