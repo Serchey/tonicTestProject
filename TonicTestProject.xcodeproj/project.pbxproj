@@ -56,7 +56,6 @@
 		E52AFD031C6F61E300CC8330 /* PreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewViewController.h; sourceTree = "<group>"; };
 		E52AFD041C6F61E300CC8330 /* PreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewViewController.m; sourceTree = "<group>"; };
 		E52AFD051C6F61E300CC8330 /* PreviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewViewController.xib; sourceTree = "<group>"; };
-		E53BAC7C1C9D34520079DE6F /* THDataSourceProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = THDataSourceProtocol.h; path = DataSource/THDataSourceProtocol.h; sourceTree = "<group>"; };
 		E53BAC7F1C9D351E0079DE6F /* THDataSourceBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = THDataSourceBase.h; path = DataSource/THDataSourceBase.h; sourceTree = "<group>"; };
 		E53BAC801C9D351E0079DE6F /* THDataSourceBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = THDataSourceBase.m; path = DataSource/THDataSourceBase.m; sourceTree = "<group>"; };
 		E53BAC821C9D355E0079DE6F /* THDataSourceItemsList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = THDataSourceItemsList.h; path = DataSource/THDataSourceItemsList.h; sourceTree = "<group>"; };
@@ -67,6 +66,7 @@
 		E53BAC8C1C9D3B840079DE6F /* TextItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextItemModel.h; path = Model/TextItemModel.h; sourceTree = "<group>"; };
 		E53BAC8D1C9D3B840079DE6F /* TextItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextItemModel.m; path = Model/TextItemModel.m; sourceTree = "<group>"; };
 		E53BAC8F1C9D58090079DE6F /* ItemModelProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemModelProtocol.h; path = Model/ItemModelProtocol.h; sourceTree = "<group>"; };
+		E53BAC921C9EBA070079DE6F /* THDataSourceBase+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "THDataSourceBase+Protected.h"; path = "DataSource/THDataSourceBase+Protected.h"; sourceTree = "<group>"; };
 		E5671E211C7101D70042BCAC /* CellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellFactory.h; sourceTree = "<group>"; };
 		E5671E221C7101D70042BCAC /* CellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellFactory.m; sourceTree = "<group>"; };
 		E5671E241C7109340042BCAC /* DataLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataLoader.h; sourceTree = "<group>"; };
@@ -172,8 +172,8 @@
 		E53BAC7B1C9D33200079DE6F /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				E53BAC7C1C9D34520079DE6F /* THDataSourceProtocol.h */,
 				E53BAC851C9D3A900079DE6F /* THDataSourceItem.h */,
+				E53BAC921C9EBA070079DE6F /* THDataSourceBase+Protected.h */,
 				E53BAC7F1C9D351E0079DE6F /* THDataSourceBase.h */,
 				E53BAC801C9D351E0079DE6F /* THDataSourceBase.m */,
 				E53BAC821C9D355E0079DE6F /* THDataSourceItemsList.h */,

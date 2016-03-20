@@ -6,15 +6,10 @@
 //  Copyright © 2016 MevaSoft. All rights reserved.
 //
 
+#import "THDataSourceBase+Protected.h"
 #import "THDataSourceBase.h"
 
 @interface THDataSourceBase ()
-
-@property(nonatomic, weak, readwrite) UITableView *tableView;
-
-@property(nonatomic, strong, readwrite) NSMutableArray<id<THDataSourceItem>> *flatItemsList;
-@property(nonatomic, strong, readwrite) NSMutableArray<id<THDataSourceItem>> *filteredItemsList;
-@property(nonatomic, strong, readwrite) NSMutableArray<NSMutableArray<id<THDataSourceItem>> *> *sectionedItemsList;
 
 @property(nonatomic, strong) NSMutableDictionary<NSString *, id<THDataSourceItemCell>> *sizingCells;
 

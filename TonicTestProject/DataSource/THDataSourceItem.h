@@ -8,6 +8,7 @@
 
 @import UIKit;
 
+// every item DataSource manages should have a reuse id for cell that will be created for it
 @protocol THDataSourceItem <NSObject>
 
 + (NSString *)cellReuseIdentifier;
@@ -15,6 +16,7 @@
 
 @end
 
+/// registered cell for use by DataSource must conform to this protocol
 @protocol THDataSourceItemCell <NSObject>
 
 - (void)fillCellWithDataSourceItem:(id<THDataSourceItem>)item;
