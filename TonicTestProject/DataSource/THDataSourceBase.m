@@ -11,6 +11,7 @@
 @interface THDataSourceBase ()
 
 @property(nonatomic, strong, readwrite) NSMutableArray<id<THDataSourceItem>> *flatItemsList;
+@property(nonatomic, strong, readwrite) NSMutableArray<id<THDataSourceItem>> *filteredItemsList;
 @property(nonatomic, strong, readwrite) NSMutableArray<NSMutableArray<id<THDataSourceItem>> *> *sectionedItemsList;
 
 @property(nonatomic, strong) NSMutableDictionary<NSString *, id<THDataSourceItemCell>> *sizingCells;
@@ -20,19 +21,18 @@
 @implementation THDataSourceBase
 
 @synthesize delegate = _delegate;
+@synthesize filteringBlock = _filteringBlock;
+@synthesize sortingComparator = _sortingComparator;
 
 - (instancetype)init {
     self = [super init];
     if (self != nil) {
         self.flatItemsList = [NSMutableArray array];
+        self.filteredItemsList = [NSMutableArray array];
         self.sectionedItemsList = [NSMutableArray array];
         self.sizingCells = [NSMutableDictionary dictionary];
     }
     return self;
-}
-
-- (void)loadData {
-    // should be overriden by a child class
 }
 
 #pragma mark - Setters
@@ -42,6 +42,16 @@
 
     _delegate.tableView.delegate = self;
     _delegate.tableView.dataSource = self;
+}
+
+- (void)setFilteringBlock:(THDataSourceFilteringBlock)filteringBlock {
+    _filteringBlock = [filteringBlock copy];
+    [self createSectionedListFromFlatList];
+}
+
+- (void)setSortingComparator:(THDataSourceSortingComparatorBlock)sortingComparator {
+    _sortingComparator = [sortingComparator copy];
+    [self createSectionedListFromFlatList];
 }
 
 #pragma mark - Helper methods
@@ -94,6 +104,41 @@
     if ([self.delegate respondsToSelector:@selector(didSelectItem:)]) {
         [self.delegate didSelectItem:item];
     }
+}
+
+#pragma mark - Data loading
+
+- (void)loadDataWithCompletionBlock:(THDataSourceDataLoadCompletionBlock)complete {
+    // should be overrided by a child class
+}
+
+#pragma mark - Filtering & Sorting
+
+- (void)createSectionedListFromFlatList {
+    // filter first
+    if (self.filteringBlock == nil) {
+        self.filteredItemsList = [self.flatItemsList mutableCopy];
+    } else {
+        [self.filteredItemsList removeAllObjects];
+        [self.flatItemsList enumerateObjectsUsingBlock:^(id<THDataSourceItem> _Nonnull item, NSUInteger idx, BOOL *_Nonnull stop) {
+          if (self.filteringBlock(item)) {
+              [self.filteredItemsList addObject:item];
+          }
+        }];
+    }
+
+    // sort items
+    if (self.sortingComparator != nil) {
+        [self.filteredItemsList sortUsingComparator:self.sortingComparator];
+    }
+
+    [self createSectionedListFromFilteredList];
+}
+
+- (void)createSectionedListFromFilteredList {
+    // may be implemented by a child class, make only one section by default
+    [self.sectionedItemsList removeAllObjects];
+    [self.sectionedItemsList addObject:self.filteredItemsList];
 }
 
 @end

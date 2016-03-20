@@ -36,7 +36,16 @@ static NSString *const kCellTypeTextNib = @"TextTableViewCell";
     [self.dataSource.supportedItemClasses addObject:[ImageItemModel class]];
     [self.dataSource.supportedItemClasses addObject:[TextItemModel class]];
     self.dataSource.delegate = self;
-    [self.dataSource loadData];
+
+    __weak typeof(self) weakSELF = self;
+    [self.dataSource loadDataWithCompletionBlock:^(THDataSourceDataLoadState state, NSError *_Nullable error) {
+
+      if (error != nil) {
+          [weakSELF showErrorWithTitle:@"Error downloading data" description:error.localizedDescription];
+      } else {
+          [weakSELF.tableView reloadData];
+      }
+    }];
 }
 
 #pragma mark - Initial Setup
@@ -56,6 +65,14 @@ static NSString *const kCellTypeTextNib = @"TextTableViewCell";
 
         [self.navigationController pushViewController:previewController animated:YES];
     }
+}
+
+#pragma mark - Helpers
+
+- (void)showErrorWithTitle:(NSString *)title description:(NSString *)description {
+    // TODO: error reporting should be moved to UI through delegate
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:description delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alertView show];
 }
 
 @end

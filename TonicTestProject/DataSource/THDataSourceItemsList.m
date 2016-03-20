@@ -24,15 +24,20 @@ static NSString *const kJSONItemsKey = @"items";
     return self;
 }
 
-- (void)loadData {
+- (void)loadDataWithCompletionBlock:(THDataSourceDataLoadCompletionBlock)complete {
     [DataLoader downloadJSONAsDictionaryFromURLString:kDataSourceURLString
                                       completionBlock:^(NSDictionary *_Nullable dictionary, NSString *_Nullable errorTitle, NSString *_Nullable errorDescription) {
-                                        if (dictionary != nil) {
-                                            [self createFlatItemsListFromDataArray:dictionary[kJSONItemsKey]];
-                                            [self createSectionedListFromFlatList];
-                                            [self.delegate.tableView reloadData];
+                                        if (dictionary == nil) {
+                                            NSError *error = [NSError errorWithDomain:NSCocoaErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey: errorDescription}];
+                                            complete(THDataSourceDataLoadStateError, error);
                                         } else {
-                                            [self showErrorWithTitle:errorTitle description:errorDescription];
+                                            [self createFlatItemsListFromDataArray:dictionary[kJSONItemsKey]];
+
+                                            // use standard method of parent class
+                                            [self createSectionedListFromFlatList];
+
+                                            // may use THDataSourceDataLoadStateFromCache here too
+                                            complete(THDataSourceDataLoadStateLoaded, nil);
                                         }
                                       }];
 }
@@ -52,20 +57,6 @@ static NSString *const kJSONItemsKey = @"items";
 
         [self.flatItemsList addObject:item];
     }
-}
-
-- (void)createSectionedListFromFlatList {
-    [self.sectionedItemsList removeAllObjects];
-    // TODO: may need to implement this logic
-    [self.sectionedItemsList addObject:self.flatItemsList];
-}
-
-#pragma mark - Helpers
-
-- (void)showErrorWithTitle:(NSString *)title description:(NSString *)description {
-    // TODO: error reporting should be moved to UI through delegate
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:description delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alertView show];
 }
 
 @end

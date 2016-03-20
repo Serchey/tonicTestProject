@@ -12,21 +12,33 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSInteger, THDataSourceDataLoadState) { THDataSourceDataLoadStateNotAvailable, THDataSourceDataLoadStateFromCache, THDataSourceDataLoadStateLoaded, THDataSourceDataLoadStateError };
+
+typedef void (^THDataSourceDataLoadCompletionBlock)(THDataSourceDataLoadState state, NSError *_Nullable error);
+typedef BOOL (^THDataSourceFilteringBlock)(id<THDataSourceItem> item); // return true if item matches requirements
+typedef NSComparisonResult (^THDataSourceSortingComparatorBlock)(id<THDataSourceItem> item1, id<THDataSourceItem> item2);
+
 @protocol THDataSourceDelegate <NSObject>
 
+/// delegate must have a tableView
 @property(nonatomic, weak, readonly) UITableView *tableView;
 
 @optional
 
+// will call this method when user taps a row
 - (void)didSelectItem:(id<THDataSourceItem>)item;
 
 @end
 
 @protocol THDataSourceProtocol <UITableViewDataSource, UITableViewDelegate>
 
-- (void)loadData;
+- (void)loadDataWithCompletionBlock:(THDataSourceDataLoadCompletionBlock)complete;
 
 @property(nonatomic, weak) id<THDataSourceDelegate> delegate;
+@property(nonatomic, copy, nullable) THDataSourceFilteringBlock filteringBlock;
+@property(nonatomic, copy, nullable) THDataSourceSortingComparatorBlock sortingComparator;
+
+@optional
 
 @end
 
