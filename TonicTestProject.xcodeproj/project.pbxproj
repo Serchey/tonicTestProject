@@ -26,6 +26,8 @@
 		E53BAC841C9D355E0079DE6F /* THDataSourceItemsList.m in Sources */ = {isa = PBXBuildFile; fileRef = E53BAC831C9D355E0079DE6F /* THDataSourceItemsList.m */; };
 		E53BAC8B1C9D3B720079DE6F /* ImageItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E53BAC8A1C9D3B720079DE6F /* ImageItemModel.m */; };
 		E53BAC8E1C9D3B840079DE6F /* TextItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E53BAC8D1C9D3B840079DE6F /* TextItemModel.m */; };
+		E53BAC971C9FDCD30079DE6F /* THTableControllerBase.m in Sources */ = {isa = PBXBuildFile; fileRef = E53BAC961C9FDCD30079DE6F /* THTableControllerBase.m */; };
+		E53BAC9D1C9FF08D0079DE6F /* ImageItemModel_TableItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E53BAC9C1C9FF08D0079DE6F /* ImageItemModel_TableItem.m */; };
 		E5671E231C7101D70042BCAC /* CellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E5671E221C7101D70042BCAC /* CellFactory.m */; };
 		E5671E261C7109340042BCAC /* DataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = E5671E251C7109340042BCAC /* DataLoader.m */; };
 /* End PBXBuildFile section */
@@ -66,7 +68,11 @@
 		E53BAC8C1C9D3B840079DE6F /* TextItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextItemModel.h; path = Model/TextItemModel.h; sourceTree = "<group>"; };
 		E53BAC8D1C9D3B840079DE6F /* TextItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextItemModel.m; path = Model/TextItemModel.m; sourceTree = "<group>"; };
 		E53BAC8F1C9D58090079DE6F /* ItemModelProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemModelProtocol.h; path = Model/ItemModelProtocol.h; sourceTree = "<group>"; };
-		E53BAC921C9EBA070079DE6F /* THDataSourceBase+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "THDataSourceBase+Protected.h"; path = "DataSource/THDataSourceBase+Protected.h"; sourceTree = "<group>"; };
+		E53BAC951C9FDCD30079DE6F /* THTableControllerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = THTableControllerBase.h; path = DataSource/THTableControllerBase.h; sourceTree = "<group>"; };
+		E53BAC961C9FDCD30079DE6F /* THTableControllerBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = THTableControllerBase.m; path = DataSource/THTableControllerBase.m; sourceTree = "<group>"; };
+		E53BAC981C9FED750079DE6F /* THDataSourceBase+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "THDataSourceBase+Protected.h"; path = "DataSource/THDataSourceBase+Protected.h"; sourceTree = "<group>"; };
+		E53BAC9B1C9FF08D0079DE6F /* ImageItemModel_TableItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageItemModel_TableItem.h; path = Model/ImageItemModel_TableItem.h; sourceTree = "<group>"; };
+		E53BAC9C1C9FF08D0079DE6F /* ImageItemModel_TableItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageItemModel_TableItem.m; path = Model/ImageItemModel_TableItem.m; sourceTree = "<group>"; };
 		E5671E211C7101D70042BCAC /* CellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellFactory.h; sourceTree = "<group>"; };
 		E5671E221C7101D70042BCAC /* CellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellFactory.m; sourceTree = "<group>"; };
 		E5671E241C7109340042BCAC /* DataLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataLoader.h; sourceTree = "<group>"; };
@@ -173,11 +179,13 @@
 			isa = PBXGroup;
 			children = (
 				E53BAC851C9D3A900079DE6F /* THDataSourceItem.h */,
-				E53BAC921C9EBA070079DE6F /* THDataSourceBase+Protected.h */,
+				E53BAC981C9FED750079DE6F /* THDataSourceBase+Protected.h */,
 				E53BAC7F1C9D351E0079DE6F /* THDataSourceBase.h */,
 				E53BAC801C9D351E0079DE6F /* THDataSourceBase.m */,
 				E53BAC821C9D355E0079DE6F /* THDataSourceItemsList.h */,
 				E53BAC831C9D355E0079DE6F /* THDataSourceItemsList.m */,
+				E53BAC951C9FDCD30079DE6F /* THTableControllerBase.h */,
+				E53BAC961C9FDCD30079DE6F /* THTableControllerBase.m */,
 			);
 			name = DataSource;
 			sourceTree = "<group>";
@@ -190,6 +198,8 @@
 				E53BAC8A1C9D3B720079DE6F /* ImageItemModel.m */,
 				E53BAC8C1C9D3B840079DE6F /* TextItemModel.h */,
 				E53BAC8D1C9D3B840079DE6F /* TextItemModel.m */,
+				E53BAC9B1C9FF08D0079DE6F /* ImageItemModel_TableItem.h */,
+				E53BAC9C1C9FF08D0079DE6F /* ImageItemModel_TableItem.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -272,6 +282,7 @@
 				E52AFCC91C6F394600CC8330 /* AppDelegate.m in Sources */,
 				E52AFCE91C6F3C9200CC8330 /* ListViewController.m in Sources */,
 				E53BAC8B1C9D3B720079DE6F /* ImageItemModel.m in Sources */,
+				E53BAC971C9FDCD30079DE6F /* THTableControllerBase.m in Sources */,
 				E52AFCF71C6F483200CC8330 /* TextTableViewCell.m in Sources */,
 				E52AFCFB1C6F4A5700CC8330 /* BaseTableViewCell.m in Sources */,
 				E52AFD061C6F61E300CC8330 /* PreviewViewController.m in Sources */,
@@ -279,6 +290,7 @@
 				E5671E261C7109340042BCAC /* DataLoader.m in Sources */,
 				E53BAC841C9D355E0079DE6F /* THDataSourceItemsList.m in Sources */,
 				E52AFCC61C6F394600CC8330 /* main.m in Sources */,
+				E53BAC9D1C9FF08D0079DE6F /* ImageItemModel_TableItem.m in Sources */,
 				E52AFD021C6F5B3100CC8330 /* UIImageCacher.m in Sources */,
 				E53BAC8E1C9D3B840079DE6F /* TextItemModel.m in Sources */,
 				E5671E231C7101D70042BCAC /* CellFactory.m in Sources */,

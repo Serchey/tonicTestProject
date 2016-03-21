@@ -8,8 +8,6 @@
 
 #import "ImageItemModel.h"
 
-static NSString *const kCellTypeReuseIdentifier = @"ImageTableViewCell";
-
 @implementation ImageItemModel
 
 + (BOOL)canBeInitedFromDictionary:(NSDictionary *)dictionary {
@@ -24,14 +22,6 @@ static NSString *const kCellTypeReuseIdentifier = @"ImageTableViewCell";
         self.previewURLString = dict[@"preview"];
     }
     return self;
-}
-
-+ (NSString *)cellReuseIdentifier {
-    return kCellTypeReuseIdentifier;
-}
-
-- (NSString *)cellReuseIdentifier {
-    return [[self class] cellReuseIdentifier];
 }
 
 @end

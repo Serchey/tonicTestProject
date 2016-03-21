@@ -8,6 +8,7 @@
 
 #import "DataLoader.h"
 #import "ImageItemModel.h"
+#import "THDataSourceBase+Protected.h"
 #import "THDataSourceItemsList.h"
 #import "TextItemModel.h"
 
@@ -16,8 +17,8 @@ static NSString *const kJSONItemsKey = @"items";
 
 @implementation THDataSourceItemsList
 
-- (instancetype)initWithTableView:(UITableView *)tableView {
-    self = [super initWithTableView:tableView];
+- (instancetype)init {
+    self = [super init];
     if (self != nil) {
         self.supportedItemClasses = [NSMutableArray array];
     }
@@ -34,7 +35,7 @@ static NSString *const kJSONItemsKey = @"items";
                                             [self createFlatItemsListFromDataArray:dictionary[kJSONItemsKey]];
 
                                             // use standard method of parent class
-                                            [self createSectionedListFromFlatList];
+                                            [self createFilteredListFromFlatList];
 
                                             // may use THDataSourceDataLoadStateFromCache here too
                                             complete(THDataSourceDataLoadStateLoaded, nil);

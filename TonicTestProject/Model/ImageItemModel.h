@@ -9,11 +9,11 @@
 @import Foundation;
 
 #import "ItemModelProtocol.h"
-#import "THDataSourceItem.h"
+#import "THTableControllerBase.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ImageItemModel : NSObject <THDataSourceItem, ItemModelProtocol>
+@interface ImageItemModel : NSObject <ItemModelProtocol>
 
 @property(nonatomic, copy) NSString *title;
 @property(nonatomic, copy) NSString *imageURLString;

@@ -6,7 +6,6 @@
 //  Copyright © 2016 MevaSoft. All rights reserved.
 //
 
-#import "THDataSourceBase+Protected.h"
 #import "THDataSourceBase.h"
 
 @interface THDataSourceItemsList : THDataSourceBase

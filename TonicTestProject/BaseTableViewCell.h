@@ -6,12 +6,12 @@
 //  Copyright © 2016 MevaSoft. All rights reserved.
 //
 
-#import "THDataSourceItem.h"
+#import "THTableControllerBase.h"
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BaseTableViewCell : UITableViewCell <THDataSourceItemCell>
+@interface BaseTableViewCell : UITableViewCell <THTableControllerItemCell>
 @end
 
 NS_ASSUME_NONNULL_END

@@ -10,10 +10,11 @@
 
 #import "ItemModelProtocol.h"
 #import "THDataSourceItem.h"
+#import "THTableControllerBase.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TextItemModel : NSObject <THDataSourceItem, ItemModelProtocol>
+@interface TextItemModel : NSObject <ItemModelProtocol, THTableControllerItem>
 
 @property(nonatomic, copy) NSString *title;
 @property(nonatomic, copy) NSString *text;
